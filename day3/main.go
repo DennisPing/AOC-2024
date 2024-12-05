@@ -15,12 +15,6 @@ func main() {
 }
 
 func part1(expr string) {
-	// Thanks ChatGPT :)
-	// `mul\(` matches the literal "mul(".
-	// `\d+` matches one or more digits.
-	// `,` matches the literal comma separating the numbers.
-	// `\d+` matches one or more digits (second number).
-	// `\)` matches the literal closing parenthesis.
 	re := regexp.MustCompile(`mul\((\d+),(\d+)\)`)
 
 	matches := re.FindAllStringSubmatch(expr, -1)
@@ -37,7 +31,6 @@ func part1(expr string) {
 }
 
 func part2(expr string) {
-	// Thanks OpenAI :)
 	re := regexp.MustCompile(`mul\((\d+),(\d+)\)|do\(\)|don't\(\)`)
 
 	matches := re.FindAllStringSubmatch(expr, -1)
