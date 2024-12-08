@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/DennisPing/AOC-2024/utils"
 	"log"
 	"os"
 	"sort"
@@ -21,7 +22,7 @@ func main() {
 func part1(grid [][]rune) {
 	count := 0
 	count += searchGrid(grid)                   // Regular grid
-	count += searchGrid(transpose(grid))        // Transpose the grid
+	count += searchGrid(utils.Transpose(grid))  // Transpose the grid
 	count += searchGrid(toDiamond(grid, true))  // Convert grid to diamond of positive diagonals
 	count += searchGrid(toDiamond(grid, false)) // Convert grid to diamond of negative diagonals
 	fmt.Println(count)
@@ -72,24 +73,6 @@ func countSubstr(row string, substr string) int {
 	}
 
 	return count
-}
-
-// Flip the grid's rows and cols
-func transpose(grid [][]rune) [][]rune {
-	n := len(grid)
-	m := len(grid[0])
-	transposed := make([][]rune, m)
-	for i := range transposed {
-		transposed[i] = make([]rune, n)
-	}
-
-	for i := 0; i < n; i++ {
-		for j := 0; j < m; j++ {
-			transposed[j][i] = grid[i][j]
-		}
-	}
-
-	return transposed
 }
 
 // Convert a rectangular grid into a diamond grid of diagonals
