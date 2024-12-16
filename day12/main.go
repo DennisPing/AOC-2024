@@ -152,8 +152,7 @@ func getPerimeter(grid [][]rune, region []Point) int {
 func getSides(grid [][]rune, region []Point) int {
 	sides := 0
 	for _, point := range region {
-		count := countCorners(grid, point)
-		sides += count
+		sides += countCorners(grid, point)
 	}
 
 	return sides
