@@ -120,7 +120,7 @@ func solveGameScaled(game Game) int {
 		return A.cost*int(i) + B.cost*int(j)
 	}
 
-	return 0
+	return -1
 }
 
 func gcd(a, b int) int {
@@ -140,7 +140,6 @@ func parseInput(filename string) []Game {
 	}
 
 	var games []Game
-
 	sections := strings.Split(string(content), "\n\n")
 	for _, section := range sections {
 		lines := strings.Split(section, "\n")
